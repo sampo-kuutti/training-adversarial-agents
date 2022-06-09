@@ -44,13 +44,7 @@ class SupervisedModel(object):
         self.W_fc3 = weight_variable([HIDDEN2_UNITS, HIDDEN3_UNITS])
         self.h_fc3 = hidden_layer(self.h_fc2, self.W_fc3, 'fc3')
 
-        # fully connected layer 4
-        #self.W_fc4 = weight_variable([HIDDEN3_UNITS, HIDDEN3_UNITS])
-        #self.h_fc4 = hidden_layer(self.h_fc3, self.W_fc4, 'fc4')
-
         # output layer
         self.W_y = weight_variable([HIDDEN3_UNITS, NUM_OUTPUTS])
         self.b_y = bias_variable([NUM_OUTPUTS])
-        #self.y = tf.tanh(tf.matmul(self.h_fc3, self.W_y), name='y')    # tanh activation function
         self.y = tf.matmul(self.h_fc3, self.W_y) + self.b_y  # no activation function
-        # + self.b_y

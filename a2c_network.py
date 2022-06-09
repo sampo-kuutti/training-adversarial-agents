@@ -1,7 +1,7 @@
 # a2c_network.py loads up the trained A2C model into its own tf session, and allows external modules
 # to call its inference function to observe the network outputs, this approach was used as it makes
 # using multiple neural networks in the same job simpler
-# however the approach of handling rnn_state outside of a2c_network currently is a bit shit
+# however the approach of handling rnn_state outside of a2c_network currently is not ideal
 import tensorflow as tf
 import os
 import numpy as np
@@ -15,7 +15,7 @@ TRAJECTORY_LENGTH = 80
 A_BOUND = [-1, 1]
 MODEL_FILE = 'model-ep-2500-finalr-18541.ckpt'
 DATA_DIR = './data/'
-LOG_DIR = '/vol/research/safeav/Sampo/condor-a2c/test/rl_models/'
+LOG_DIR = '.models//rl_models/'
 
 class ACNetwork(object):
     """implements the AC network model for estimating vehicle host actions"""

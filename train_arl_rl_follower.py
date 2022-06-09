@@ -695,15 +695,7 @@ class Worker(object):
             # Run an update step at the end of episode
             if UPDATE_ENDSTEP:
 
-                # v_s_ = 0  # terminal state
-                # buffer_v_target = []
-                # for r in buffer_r[::-1]:  # reverse buffer r
-                #    v_s_ = r + GAMMA * v_s_
-                #    buffer_v_target.append(v_s_)
-                # buffer_v_target.reverse()
 
-                # buffer_s, buffer_a, buffer_v_target = np.vstack(buffer_s), np.vstack(buffer_a), np.vstack(
-                #    buffer_v_target)
                 minibatch = trauma_buffer
                 batch_s = np.asarray([elem[0] for elem in minibatch]).reshape(TRAJECTORY_LENGTH, N_S)
                 batch_a = np.asarray([elem[1] for elem in minibatch]).reshape(TRAJECTORY_LENGTH, N_A)
@@ -721,7 +713,6 @@ class Worker(object):
                     self.AC.s: batch_s,
                     self.AC.a_his: batch_a,
                     self.AC.v_target: batch_v_target,
-                    # self.AC.next_s: np.asarray([elem[3] for elem in minibatch]).reshape(TRAJECTORY_LENGTH, N_S),
                     self.AC.state_in[0]: self.batch_rnn_state[0],
                     self.AC.state_in[1]: self.batch_rnn_state[1]
                 }
@@ -871,7 +862,6 @@ if __name__ == "__main__":
         with a2c_graph.as_default():
             saver = tf.train.Saver()
             tf.global_variables_initializer().run()
-    #sess.run(tf.global_variables_initializer())
 
             # merge tensorboard summaries
             merged = tf.summary.merge_all()

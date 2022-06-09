@@ -18,7 +18,7 @@ For further details see the paper: https://arxiv.org/abs/2002.12078
 Clone the repo
 
 ```bash
-git clone https://github.com/sampo-kuutti/training-adversarial-agents/.git
+git clone https://github.com/sampo-kuutti/training-adversarial-agents
 ```
 
 install requirements:
