@@ -10,7 +10,7 @@ import numpy as np
 NUM_INPUTS = 3
 MODEL_FILE = 'model-step-901000-val-0.0150463.ckpt'
 DATA_DIR = './data/'
-LOG_DIR = '.models/sl_models/'
+LOG_DIR = './models/sl_models/'
 
 
 class SupervisedNetwork(object):

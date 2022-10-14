@@ -8,11 +8,11 @@ import tensorflow as tf
 import numpy as np
 import os
 
-fpath = '/vol/research/safeav/Sampo/condor-a2c/test/'  # use same directory path
+
 NUM_INPUTS = 5
 MODEL_FILE = 'model-step-981000-val-7.87466e-05.ckpt'
 DATA_DIR = './data/'
-LOG_DIR = fpath
+LOG_DIR = './models/ipg_models/'
 
 
 class IpgProxy(object):
